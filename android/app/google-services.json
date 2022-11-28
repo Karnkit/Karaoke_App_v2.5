@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "89303463741",
+    "firebase_url": "https://karaoke-real-one-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "karaoke-real-one",
+    "storage_bucket": "karaoke-real-one.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:89303463741:android:17debe0d9a7b4601ed7754",
+        "android_client_info": {
+          "package_name": "com.example.karaoke_real_one"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "89303463741-mhoomjlvpeplhdbg4i0pfnoou7jn2pnt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7wjOzvJwlUuxHGMvBA60TR-ymWg8H_dQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "89303463741-mhoomjlvpeplhdbg4i0pfnoou7jn2pnt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
