@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget searchIcon() {
     return AnimSearchBar(
-      width: 260,
+      width: double.infinity,
       textController: textController
         ..addListener(() {
           new Timer(Duration(seconds: 5), () async {
