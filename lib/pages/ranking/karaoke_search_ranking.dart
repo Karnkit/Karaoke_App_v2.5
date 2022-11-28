@@ -7,7 +7,8 @@ class KaraokeSearchRanking extends StatefulWidget {
   final List usersRanking;
   final int index;
 
-  const KaraokeSearchRanking({Key? key, required this.usersRanking, required this.index})
+  const KaraokeSearchRanking(
+      {Key? key, required this.usersRanking, required this.index})
       : super(key: key);
 
   @override
@@ -40,7 +41,7 @@ class _KaraokeSearchRankingState extends State<KaraokeSearchRanking> {
               "Search Ranking",
               style: TextStyle(
                   fontSize: 20,
-                  color: Colors.green,
+                  color: Colors.white,
                   fontWeight: FontWeight.bold),
             ),
             arrowBackIcon(),
@@ -52,9 +53,7 @@ class _KaraokeSearchRankingState extends State<KaraokeSearchRanking> {
 
   Widget arrowBackIcon() {
     return IconButton(
-      icon: Icon(
-        Icons.arrow_back_ios,
-        color: Colors.white),
+      icon: Icon(Icons.arrow_back_ios, color: Colors.white),
       onPressed: () {
         Navigator.pop(context);
       },
@@ -65,96 +64,99 @@ class _KaraokeSearchRankingState extends State<KaraokeSearchRanking> {
     var size = MediaQuery.of(context).size;
     return SingleChildScrollView(
         child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 30, right: 30, bottom: 0),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: (size.width - 60) * 0.70,
-                    child: Text(
-                      "#  " +
-                      "Name",
-                    style: TextStyle(
-                    color: Colors.yellow.withOpacity(0.8), fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Container(
-                    width: (size.width - 60) * 0.30,
-                    height: 40,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          "Total Stars",
-                          style: TextStyle(
-                            color: Colors.yellow.withOpacity(0.8),
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 30, right: 30, bottom: 0),
+          child: Row(
+            children: [
+              SizedBox(
+                width: (size.width - 60) * 0.70,
+                child: Text(
+                  "#  " + "Name",
+                  style: TextStyle(
+                      color: Colors.yellow.withOpacity(0.8),
+                      fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
-            Column(
-              children: List.generate(widget.usersRanking.length<50? widget.usersRanking.length:50, (index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(left: 30, right: 30, bottom: 10),
-                      child: GestureDetector(
-                        onTap: () async {
-                          List userData = [
-                            widget.usersRanking[widget.usersRanking.length - index - 1]
-                          ];
-                          List userSongs =
-                              await fb_connect().fetchingSongList(userData[0]['userName']);
-                          userData[0]['songs'] = userSongs;
-                          Navigator.push(
-                              context,
-                              PageTransition(
-                                  alignment: Alignment.bottomCenter,
-                                  child: ProfilePage(userData: userData),
-                                  type: PageTransitionType.scale));
-                        },
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: (size.width - 60) * 0.70,
-                              child: Text(
-                                "${index + 1}  " +
-                                    widget.usersRanking[
-                                        widget.usersRanking.length - index - 1]['userName'],
-                                style: TextStyle(
-                                    color: Colors.white, fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            Container(
-                              width: (size.width - 60) * 0.30,
-                              height: 50,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    widget.usersRanking[
-                                            widget.usersRanking.length - index - 1]['stars']
-                                        .toString(),
-                                    style: TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+              Container(
+                width: (size.width - 60) * 0.30,
+                height: 40,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      "Total Stars",
+                      style: TextStyle(
+                          color: Colors.yellow.withOpacity(0.8),
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        Column(
+          children: List.generate(
+              widget.usersRanking.length < 50 ? widget.usersRanking.length : 50,
+              (index) {
+            return Padding(
+              padding: const EdgeInsets.only(left: 30, right: 30, bottom: 10),
+              child: GestureDetector(
+                onTap: () async {
+                  List userData = [
+                    widget.usersRanking[widget.usersRanking.length - index - 1]
+                  ];
+                  List userSongs = await fb_connect()
+                      .fetchingSongList(userData[0]['userName']);
+                  userData[0]['songs'] = userSongs;
+                  Navigator.push(
+                      context,
+                      PageTransition(
+                          alignment: Alignment.bottomCenter,
+                          child: ProfilePage(userData: userData),
+                          type: PageTransitionType.scale));
+                },
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: (size.width - 60) * 0.70,
+                      child: Text(
+                        "${index + 1}  " +
+                            widget.usersRanking[widget.usersRanking.length -
+                                index -
+                                1]['userName'],
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
                       ),
-                    );
-              }),
-            ),
-          ],
-        ));
+                    ),
+                    Container(
+                      width: (size.width - 60) * 0.30,
+                      height: 50,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            widget.usersRanking[widget.usersRanking.length -
+                                    index -
+                                    1]['stars']
+                                .toString(),
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }),
+        ),
+      ],
+    ));
   }
 }

@@ -39,7 +39,7 @@ class _SettingProfilePageState extends State<SettingProfilePage> {
         title: Text(
           "Setting",
           style: TextStyle(
-              fontSize: 20, color: Colors.green, fontWeight: FontWeight.bold),
+              fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
       body: Container(
