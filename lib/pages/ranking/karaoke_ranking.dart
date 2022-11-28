@@ -56,7 +56,7 @@ class _KaraokeRankingState extends State<KaraokeRanking> {
 
   Widget searchIcon() {
     return AnimSearchBar(
-      width: double.infinity,
+      width: MediaQuery.of(context).size.width * 0.5,
       textController: textController
         ..addListener(() {
           new Timer(const Duration(seconds: 5), () {
